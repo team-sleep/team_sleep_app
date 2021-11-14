@@ -1,0 +1,5 @@
+streamlit
+hydralit
+psycopg2
+pandas
+numpy
