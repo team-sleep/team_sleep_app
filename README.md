@@ -1,5 +1,7 @@
 placeholder for group app
 
-repo is pulled from heroku.
+this repo is pulled from heroku. heroku dashboard = https://dashboard.heroku.com/apps/team-sleep-app
 
-heroku url = https://team-sleep-app.herokuapp.com/
+app heroku url = https://team-sleep-app.herokuapp.com/
+
+db creds:  .streamlit/secrets.toml
