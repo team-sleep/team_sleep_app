@@ -51,21 +51,21 @@ def find_importances (Gender, Married, ApplicantIncome, LoanAmount, Credit_Histo
        		Married = 0
 	else:
         	Married = 1
-
-    	if Credit_History == "Unclear Debts":
+	
+	if Credit_History == "Unclear Debts":
 		Credit_History = 0
-   	else:
+	else:
 		Credit_History = 1  
 
-    	LoanAmount = LoanAmount / 1000
+	LoanAmount = LoanAmount / 1000
 
-    	d = {'Gender': [Gender], 'Married': [Married], "ApplicantIncome":[ApplicantIncome], "LoanAmount":[LoanAmount], "Credit_History":[Credit_History] }
-    	df = pd.DataFrame(data=d)
+	d = {'Gender': [Gender], 'Married': [Married], "ApplicantIncome":[ApplicantIncome], "LoanAmount":[LoanAmount], "Credit_History":[Credit_History] }
+	df = pd.DataFrame(data=d)
 
 
-    	from treeinterpreter import treeinterpreter as ti
-    	prediction, bias, contributions = ti.predict(classifier, df)
-    	N = 6 # no of entries in plot , 4 ---> features & 1 ---- class label
+	from treeinterpreter import treeinterpreter as ti
+	prediction, bias, contributions = ti.predict(classifier, df)
+	N = 6 # no of entries in plot , 4 ---> features & 1 ---- class label
 
 
     	import matplotlib.pyplot as plt
@@ -77,10 +77,10 @@ def find_importances (Gender, Married, ApplicantIncome, LoanAmount, Credit_Histo
     	zero = []
 
     	for j in range(2):
-        	list_ =  [one ,zero]
+		list_ =  [one ,zero]
         	for i in range(5):
-            	val = contributions[0,i,j]
-            	list_[j].append(val)
+			val = contributions[0,i,j]
+			list_[j].append(val)
 
     	zero.append(prediction[0,0]/6)
     	one.append(prediction[0,1]/6)
