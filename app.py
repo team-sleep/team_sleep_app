@@ -68,33 +68,33 @@ def find_importances (Gender, Married, ApplicantIncome, LoanAmount, Credit_Histo
 	N = 6 # no of entries in plot , 4 ---> features & 1 ---- class label
 
 
-    	import matplotlib.pyplot as plt
-    	import numpy as np
+	import matplotlib.pyplot as plt
+	import numpy as np
 
-    	col = ['Gender', 'Married', 'ApplicantIncome', 'LoanAmount', 'Credit_History',"result"]
+	col = ['Gender', 'Married', 'ApplicantIncome', 'LoanAmount', 'Credit_History',"result"]
 
-    	one = []
-    	zero = []
+	one = []
+	zero = []
 
-    	for j in range(2):
+	for j in range(2):
 		list_ =  [one ,zero]
-        	for i in range(5):
+		for i in range(5):
 			val = contributions[0,i,j]
 			list_[j].append(val)
 
-    	zero.append(prediction[0,0]/6)
-    	one.append(prediction[0,1]/6)
-    	fig, ax = plt.subplots()
-    	ind = np.arange(N)   
-    	width = 0.15        
-    	p1 = ax.bar(ind, one, width, color='red', bottom=0)
-    	p2 = ax.bar(ind+width, zero, width, color='green', bottom=0)
-    	ax.set_title('Contribution of all feature for a particular sample')
-    	ax.set_xticks(ind + width / 2)
-    	ax.set_xticklabels(col, rotation = 90)
-    	ax.legend((p1[0], p2[0]), ('one', 'zero') , bbox_to_anchor=(1.04,1), loc="upper left")
-    	ax.autoscale_view()
-    	st.pyplot(fig)
+	zero.append(prediction[0,0]/6)
+	one.append(prediction[0,1]/6)
+	fig, ax = plt.subplots()
+	ind = np.arange(N)   
+	width = 0.15        
+	p1 = ax.bar(ind, one, width, color='red', bottom=0)
+	p2 = ax.bar(ind+width, zero, width, color='green', bottom=0)
+	ax.set_title('Contribution of all feature for a particular sample')
+	ax.set_xticks(ind + width / 2)
+	ax.set_xticklabels(col, rotation = 90)
+	ax.legend((p1[0], p2[0]), ('one', 'zero') , bbox_to_anchor=(1.04,1), loc="upper left")
+	ax.autoscale_view()
+	st.pyplot(fig)
     
 
 
