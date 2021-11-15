@@ -99,7 +99,7 @@ def find_importances (Gender, Married, ApplicantIncome, LoanAmount, Credit_Histo
 
 
 app = st.HydraApp(title='Team Sleep App', nav_horizontal=True, 
-      use_banner_images=[None,None,{'header':"<h1 style='text-align:center;padding: 0px 0px;color:black;font-size:200%;'>App title here</h1><br>"},None,None], 
+      use_banner_images=[None,None,{'header':"<h1 style='text-align:center;padding: 0px 0px;color:black;font-size:200%;'>Team 001: Sleep Diagnosis</h1><br>"},None,None], 
       banner_spacing=[5,30,60,30,5],)
 
 @app.addapp(title="User", is_home=True) #set to false to not use "home icon" for this page
