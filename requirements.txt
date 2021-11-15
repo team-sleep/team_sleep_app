@@ -3,3 +3,4 @@ hydralit
 psycopg2
 pandas
 numpy
+plotly
