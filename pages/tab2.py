@@ -13,9 +13,9 @@ def run():
 
     pickle_in = open('classifier.pkl', 'rb') 
     classifier = pickle.load(pickle_in)
-    print(type(classifier))
-    feature_importance = classifier.feature_importance_
-    print(feature_importance)
+    st.title(f"{type(classifier)}")
+    feature_importance = classifier.feature_importances_
+    st.title(f"feature_importance: {feature_importance}")
     feature_names = ["Gender", "Married", "ApplicantIncome", "LoanAmount", "Credit_History"]
     st.bar_chart(feature_importance, columns = feature_names)
 
