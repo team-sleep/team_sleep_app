@@ -1,6 +1,5 @@
 # import hydralit automatically imports all of Streamlit
 # https://github.com/TangleSpace/hydralit
-pip install plotly.express
 import hydralit as st
 #import psycopg2  #for postgres
 import pandas as pd
