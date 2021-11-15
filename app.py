@@ -105,28 +105,28 @@ app = st.HydraApp(title='Team Sleep App', nav_horizontal=True,
 @app.addapp(title="User", is_home=True) #set to false to not use "home icon" for this page
 def tab1():
 	from pages import tab1
-    	st.sidebar.title("Sleep Questionnaire")
-    	Gender = st.sidebar.selectbox('Gender',("Male","Female"))
-    	Married = st.sidebar.selectbox('Marital Status',("Unmarried","Married")) 
-    	ApplicantIncome = st.sidebar.number_input("Applicants monthly income") 
-    	LoanAmount = st.sidebar.number_input("Total loan amount")
-    	Credit_History = st.sidebar.selectbox('Credit_History',("Unclear Debts","No Unclear Debts"))
-    	result =""
+	st.sidebar.title("Sleep Questionnaire")
+	Gender = st.sidebar.selectbox('Gender',("Male","Female"))
+	Married = st.sidebar.selectbox('Marital Status',("Unmarried","Married")) 
+	ApplicantIncome = st.sidebar.number_input("Applicants monthly income") 
+	LoanAmount = st.sidebar.number_input("Total loan amount")
+	Credit_History = st.sidebar.selectbox('Credit_History',("Unclear Debts","No Unclear Debts"))
+	result =""
     
-    	if st.sidebar.button("Predict"): 
-        	result = prediction(Gender, Married, ApplicantIncome, LoanAmount, Credit_History) 
-        	st.sidebar.success('Your loan is {}'.format(result))
-        	print(LoanAmount)
+	if st.sidebar.button("Predict"): 
+		result = prediction(Gender, Married, ApplicantIncome, LoanAmount, Credit_History) 
+		st.sidebar.success('Your loan is {}'.format(result))
+		print(LoanAmount)
         
         
-       	# feat_importances = pd.Series(importances.feature_importances_, index=["Gender", "Married", "ApplicantIncome", "LoanAmount", "Credit_History"]).sort_values(ascending=False)
-       	# impPlot(feat_importances, 'Random Forest Classifier')
-        	find_importances(Gender, Married, ApplicantIncome, LoanAmount, Credit_History)  
-        	st.write('\n')
+# feat_importances = pd.Series(importances.feature_importances_, index=["Gender", "Married", "ApplicantIncome", "LoanAmount", "Credit_History"]).sort_values(ascending=False)
+# impPlot(feat_importances, 'Random Forest Classifier')
+		find_importances(Gender, Married, ApplicantIncome, LoanAmount, Credit_History)  
+		st.write('\n')
    
 
  	 #  @st.cache()
-    	tab1.run()
+	tab1.run()
 
 @app.addapp(title="Model")
 def tab2():
