@@ -17,7 +17,6 @@ def run():
     st.subheader("Feature Importance") 
     feature_importance = classifier.feature_importances_
     feature_names = ["Gender", "Married", "ApplicantIncome", "LoanAmount", "Credit_History"]
-    graph = plt.barh(feature_names, feature_importance)
+    # graph = plt.barh(feature_names, feature_importance)
 
-    st.pyplot(graph)
-
+    st.pyplot(plt.barh(feature_names, feature_importance)) 
