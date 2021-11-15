@@ -13,9 +13,11 @@ def run():
 
     pickle_in = open('classifier.pkl', 'rb') 
     classifier = pickle.load(pickle_in)
+
+    st.subheader("Feature Importance") 
     feature_importance = classifier.feature_importances_
     feature_names = ["Gender", "Married", "ApplicantIncome", "LoanAmount", "Credit_History"]
     graph = plt.barh(feature_names, feature_importance)
 
-    st.pyplot(feature)
+    st.pyplot(graph)
 
