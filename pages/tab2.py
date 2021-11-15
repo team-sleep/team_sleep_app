@@ -7,3 +7,4 @@ def run():
     </div> 
     """
     st.markdown(html_temp, unsafe_allow_html = True)
+    st.sidebar.title("Model Visualization")
