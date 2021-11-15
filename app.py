@@ -44,7 +44,7 @@ def prediction(Gender, Married, ApplicantIncome, LoanAmount, Credit_History):
 def find_importances (Gender, Married, ApplicantIncome, LoanAmount, Credit_History):   
 	if Gender == "Male":
 		Gender = 0
-    	else:
+	else:
         	Gender = 1
 
     	if Married == "Unmarried":
