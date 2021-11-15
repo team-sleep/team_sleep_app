@@ -1,6 +1,6 @@
 import hydralit as st
 import pickle
-import plotly.express as px
+import matplotlib.pyplot as plt
 
 def run():
     html_temp = """ 
@@ -14,7 +14,8 @@ def run():
     pickle_in = open('classifier.pkl', 'rb') 
     classifier = pickle.load(pickle_in)
     feature_importance = classifier.feature_importances_
-    st.title(f"feature names: {classifier.feature_names_in_}")
     feature_names = ["Gender", "Married", "ApplicantIncome", "LoanAmount", "Credit_History"]
-    st.bar_chart(feature_importance)
+    graph = plt.barh(feature_names, feature_importance)
+
+    st.pyplot(feature)
 
