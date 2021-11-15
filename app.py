@@ -46,10 +46,10 @@ def find_importances (Gender, Married, ApplicantIncome, LoanAmount, Credit_Histo
 		Gender = 0
 	else:
         	Gender = 1
-
-    	if Married == "Unmarried":
+		
+	if Married == "Unmarried":
        		Married = 0
-    	else:
+	else:
         	Married = 1
 
     	if Credit_History == "Unclear Debts":
