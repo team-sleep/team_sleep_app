@@ -34,14 +34,26 @@ def run():
     # from subprocess import call
     # call(['dot', '-Tpng', 'tree.dot', '-o', 'tree.png', '-Gdpi=600'])
 
-    for i in range(0,5): # number of rows in  table
-        cols = st.columns(5) # number of columns in each row
+    #st.sidebar.title("Preferences")
+    #display_num_trees = st.sidebar.select_slider("Trees to display", options=[1,4,50,100], on_change=None, args=None, kwargs=None)
+    st.markdown('The random forest algorithm determines an outcome based on the predictions from **100** decision trees. ' +
+            'Use the slider to visulize a subset or all of the trees in the forest.')
 
-        cols[0].image('images/rtree_row%i_col0.png' %i, use_column_width=True)
-        cols[1].image('images/rtree_row%i_col1.png' %i, use_column_width=True)
-        cols[2].image('images/rtree_row%i_col2.png' %i, use_column_width=True)
-        cols[3].image('images/rtree_row%i_col3.png' %i, use_column_width=True)
-        cols[4].image('images/rtree_row%i_col4.png' %i, use_column_width=True)
-
+    display_num_trees = st.select_slider("Number of Trees to display", options=[1,4,50,100], on_change=None, args=None, kwargs=None)
     
+    if(display_num_trees == 1):
+        num_cols=1
+    elif(display_num_trees == 4):
+        num_cols=2
+    else:
+        num_cols=5
+
+    num_rows = int(display_num_trees / num_cols)
+
+    for r in range(0,num_rows): # number of rows in table
+        cols = st.columns(num_cols)
+        for c in range(0, num_cols):
+            count = r + c + 1
+            cols[c].image('images/rtree_image_%i.png' %count, use_column_width=True)
+
     
