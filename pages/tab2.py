@@ -1,7 +1,6 @@
 import hydralit as st
 import pickle
-import matplotlib.pyplot as plt
-
+import altair as alt
 def run():
     html_temp = """ 
     <div style ="background-color:black;padding:1px"> 
@@ -18,5 +17,6 @@ def run():
     feature_importance = classifier.feature_importances_
     feature_names = ["Gender", "Married", "ApplicantIncome", "LoanAmount", "Credit_History"]
     # graph = plt.barh(feature_names, feature_importance)
-
-    st.pyplot(plt.barh(feature_names, feature_importance)) 
+    bar_data = pd.DataFrame(feature_importance, feature_names)
+    st.title(f"bar data: {bar_data}")
+    st.bar_chart(bar_data) 
