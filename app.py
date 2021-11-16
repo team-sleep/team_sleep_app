@@ -168,6 +168,11 @@ def tab1():
 # impPlot(feat_importances, 'Random Forest Classifier')
 		find_importances(Gender, Married, ApplicantIncome, LoanAmount, Credit_History)  
 		st.write('\n')
+		
+		#PCA
+		data_import = pd.read_csv("train_ctrUa4k.csv")
+		perform_pca(data_import)
+
    
 
  	 #  @st.cache()
