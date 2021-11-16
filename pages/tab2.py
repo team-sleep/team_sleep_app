@@ -1,6 +1,8 @@
 import hydralit as st
 import pickle
 import altair as alt
+import pandas as pd
+
 def run():
     html_temp = """ 
     <div style ="background-color:black;padding:1px"> 
