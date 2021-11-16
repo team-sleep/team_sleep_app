@@ -95,7 +95,52 @@ def find_importances (Gender, Married, ApplicantIncome, LoanAmount, Credit_Histo
 	ax.legend((p1[0], p2[0]), ('one', 'zero') , bbox_to_anchor=(1.04,1), loc="upper left")
 	ax.autoscale_view()
 	st.pyplot(fig)
+   
+def pca_maker(data_import):
+	numerical_columns_list = []
+	categorical_columns_list = []
+
+	for i in data_import.columns:
+		if data_import[i].dtype == np.dtype("float64") or data_import[i].dtype == np.dtype("int64"):
+			numerical_columns_list.append(data_import[i])
+		else:
+			categorical_columns_list.append(data_import[i])
+
+	numerical_data = pd.concat(numerical_columns_list, axis=1)
+	categorical_data = pd.concat(categorical_columns_list, axis=1)
+
+	numerical_data = numerical_data.apply(lambda x: x.fillna(np.mean(x)))
+
+	scaler = StandardScaler()
+
+	scaled_values = scaler.fit_transform(numerical_data)
+
+	pca1 = PCA()
+
+	pca_data = pca1.fit_transform(scaled_values)
+
+	pca_data = pd.DataFrame(pca_data)
+
+	new_column_names = ["PCA_" + str(i) for i in range(1, len(pca_data.columns) + 1)]
+
+	column_mapper = dict(zip(list(pca_data.columns), new_column_names))
+
+	pca_data = pca_data.rename(columns=column_mapper)
+
+	output = pd.concat([data_import, pca_data], axis=1)
+
+	return pca1 , scaled_values , output, list(categorical_data.columns), new_column_names , list(numerical_data.columns)
+
     
+def perform_pca(data_import):
+	pca , scaled_values , pca_data, cat_cols, pca_cols , num_data = pca_maker(data_import)
+	categorical_variable = "Loan_Status"
+	pca_1 = "Credit_History"
+	pca_2 = "ApplicantIncome"
+
+	st.plotly_chart(px.scatter(data_frame=pca_data, x=pca_1, y=pca_2, color=categorical_variable, template="simple_white", height=800), use_container_width=True)
+ 
+        
 
 
 app = st.HydraApp(title='Team Sleep App', nav_horizontal=True, 
