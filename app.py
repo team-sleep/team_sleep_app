@@ -7,6 +7,8 @@ import pickle
 import plotly.express as px
 import numpy as np
 import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
 
 pickle_in = open('classifier.pkl', 'rb') 
 classifier = pickle.load(pickle_in)
