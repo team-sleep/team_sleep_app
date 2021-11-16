@@ -3,3 +3,7 @@ hydralit
 psycopg2
 pandas
 numpy
+plotly
+matplotlib
+sklearn
+treeinterpreter
