@@ -17,9 +17,8 @@ def run():
 
     st.subheader("Feature Importance") 
     feature_importance = classifier.feature_importances_
-    sorted_idx = feature_importance._argsort()
     feature_names = ["Gender", "Married", "ApplicantIncome", "LoanAmount", "Credit_History"]
-    bar_data = pd.DataFrame(feature_importance[sorted_idx], feature_names[sorted_idx])
+    bar_data = pd.DataFrame(feature_importance, feature_names)
     st.bar_chart(bar_data) 
 
     st.subheader("Confusion Matrix") 
