@@ -18,14 +18,14 @@ def run():
     st.subheader("Feature Importance") 
     feature_importance = classifier.feature_importances_
     feature_names = ["Gender", "Married", "ApplicantIncome", "LoanAmount", "Credit_History"]
-    bar_data = pd.DataFrame(feature_importance, feature_names)
-    st.bar_chart(bar_data) 
+    # bar_data = pd.DataFrame(feature_importance, feature_names)
+    # st.bar_chart(bar_data) 
 
-    bar_data = pd.DataFrame({"feature importance": feature_importance, 
-                         "feature name": feature_names})
+    bar_data = pd.DataFrame({"Feature Importance": feature_importance, 
+                         "Feature": feature_names})
     c = alt.Chart(bar_data).mark_bar().encode(
-    x = "feature importance",
-    y = "feature name")
+    x = "Feature Importance",
+    y = "Feature")
 
     st.altair_chart(c, use_container_width=True)
 
