@@ -25,20 +25,10 @@ def run():
                          "Feature": feature_names})
     c = alt.Chart(bar_data).mark_bar().encode(
     x = "Feature Importance",
-    y = "Feature")
+    y = alt.Y('Feature', sort='-x'))
 
     st.altair_chart(c, use_container_width=True)
     
-    sorted_idx = classifier.feature_importances_.argsort()
-    bar_data2 = pd.DataFrame({"Feature Importance": classifier.feature_importances_[sorted_idx], 
-                         "Feature": feature_names[sorted_idx]})
-    d = alt.Chart(bar_data2).mark_bar().encode(
-    x = "Feature Importance",
-    y = "Feature")
-
-    st.altair_chart(d, use_container_width=True)
-    
-
     st.subheader("Confusion Matrix") 
     st.write("Confusion Matrix Visual will be placed here.")
 
