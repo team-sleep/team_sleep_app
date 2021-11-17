@@ -18,9 +18,17 @@ def run():
     st.subheader("Feature Importance") 
     feature_importance = classifier.feature_importances_
     feature_names = ["Gender", "Married", "ApplicantIncome", "LoanAmount", "Credit_History"]
-    bar_data = pd.DataFrame(feature_importance, feature_names)
-    st.bar_chart(bar_data) 
+    # bar_data = pd.DataFrame(feature_importance, feature_names)
+    # st.bar_chart(bar_data) 
 
+    bar_data = pd.DataFrame({"Feature Importance": feature_importance, 
+                         "Feature": feature_names})
+    c = alt.Chart(bar_data).mark_bar().encode(
+    x = "Feature Importance",
+    y = alt.Y('Feature', sort='-x'))
+
+    st.altair_chart(c, use_container_width=True)
+    
     st.subheader("Confusion Matrix") 
     st.write("Confusion Matrix Visual will be placed here.")
 
