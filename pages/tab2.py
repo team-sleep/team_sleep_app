@@ -21,10 +21,12 @@ def run():
     bar_data = pd.DataFrame(feature_importance, feature_names)
     st.bar_chart(bar_data) 
 
-    df = pd.DataFrame({"Features": feature_names, "Relative Importance": feature_importance})
+    bar_data = pd.DataFrame({"feature importance": feature_importance, 
+                         "feature name": feature_names})
     c = alt.Chart(bar_data).mark_bar().encode(
-        x = "Relative Importance",
-        y = "Features")
+    x = "feature importance",
+    y = "feature name")
+
     st.altair_chart(c, use_container_width=True)
 
     st.subheader("Confusion Matrix") 
