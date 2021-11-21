@@ -9,6 +9,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsClassifier
 import statistics
+from statistics import mean
 
 pickle_in = open('classifier_5.pkl', 'rb') 
 classifier = pickle.load(pickle_in)
