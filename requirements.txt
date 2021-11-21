@@ -6,5 +6,6 @@ numpy
 plotly
 matplotlib
 sklearn
+neighbors
 treeinterpreter
 KNeighborsClassifier
