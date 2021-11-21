@@ -8,8 +8,7 @@ import plotly.express as px
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsClassifier
-import statistics
-from statistics import mean
+
 
 pickle_in = open('classifier_5.pkl', 'rb') 
 classifier = pickle.load(pickle_in)
@@ -75,7 +74,7 @@ def prediction(age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3
 		breathst = 5
             
 	# Calculate index_1    
-	index_1 = mean(lsnore, sngasp, breathst)
+	index_1 = sum(lsnore, sngasp, breathst)/3
         
 	#Calculate map_score
 	#first x is calculated where [x=-8.16+(1.299*index_1)+ (0.163*BMI)-(0.028*index_1*BMI)+(0.032*Age)+(1.278*Gender)] 
@@ -230,7 +229,7 @@ def find_importances (Gender, Married, ApplicantIncome, LoanAmount, Credit_Histo
 		breathst = 5
             
 	# Calculate index_1    
-	index_1 = mean(lsnore, sngasp, breathst)
+	index_1 = sum(lsnore, sngasp, breathst)/3
         
 	#Calculate map_score
 	#first x is calculated where [x=-8.16+(1.299*index_1)+ (0.163*BMI)-(0.028*index_1*BMI)+(0.032*Age)+(1.278*Gender)] 
