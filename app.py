@@ -8,6 +8,7 @@ import plotly.express as px
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsClassifier
+import math
 
 
 pickle_in = open('classifier_5.pkl', 'rb') 
@@ -82,8 +83,8 @@ def prediction(age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3
 	#first x is calculated where [x=-8.16+(1.299*index_1)+ (0.163*BMI)-(0.028*index_1*BMI)+(0.032*Age)+(1.278*Gender)] 
 	#then map_score is calculated by [=EXP(x)/(1+EXP(x)) 
         
-	xcalc = -8.16+(1.299*index_1)+(0,163*bmi)-(0.028*index_1*bmi)+(0.032*age)+(1.278*gender)
-	map_score = exp(x)/(1+exp(x))
+	xcalc = -8.16+(1.299*index_1)+(0.163*bmi)-(0.028*index_1*bmi)+(0.032*age)+(1.278*gender)
+	map_score = math.exp(xcalc)/(1+math.exp(xcalc))
 
 	
 #Feature 2
@@ -238,8 +239,8 @@ def find_importances (Gender, Married, ApplicantIncome, LoanAmount, Credit_Histo
 	#first x is calculated where [x=-8.16+(1.299*index_1)+ (0.163*BMI)-(0.028*index_1*BMI)+(0.032*Age)+(1.278*Gender)] 
 	#then map_score is calculated by [=EXP(x)/(1+EXP(x)) 
         
-	xcalc = -8.16+(1.299*index_1)+(0,163*bmi)-(0.028*index_1*bmi)+(0.032*age)+(1.278*gender)
-	map_score = exp(x)/(1+exp(x))
+	xcalc = -8.16+(1.299*index_1)+(0.163*bmi)-(0.028*index_1*bmi)+(0.032*age)+(1.278*gender)
+	map_score = math.exp(xcalc)/(1+math.exp(xcalc))
 
 	
 #Feature 2
