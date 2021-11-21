@@ -365,9 +365,9 @@ def tab1():
     
     
 	papdev = st.sidebar.selectbox('Type of PAP Device',("CPAP","BiPAP/BiLevel","Do not know")) 
-	lsnore = st.sidebar.selectbox('How often have you had or been told you had loud snoring?',("Never","Sometimes","Frequently","Always","Don't know"))
-	sngasp = st.sidebar.selectbox('How often have you had or been told you had snorting/gasping?',("Never","Sometimes","Frequently","Always","Don't know"))
-	breathst = st.sidebar.selectbox('How often have you had or been told you stopped breathing?',("Never","Sometimes","Frequently","Always","Don't know"))
+	lsnore = st.sidebar.selectbox('How often have you had or been told you had loud snoring?',("Never","Rarely","Sometimes","Frequently","Always","Don't know"))
+	sngasp = st.sidebar.selectbox('How often have you had or been told you had snorting/gasping?',("Never","Rarely","Sometimes","Frequently","Always","Don't know"))
+	breathst = st.sidebar.selectbox('How often have you had or been told you stopped breathing?',("Never","Rarely","Sometimes","Frequently","Always","Don't know"))
 
 	sq1 = st.sidebar.selectbox('What time of day would you get up if you were entirely free to plan your day?',("11am-12pm","9:45-11am","7:45-9:45am","6:30-7:45am","5-6:30am")) 
 	sq2 = st.sidebar.selectbox('During the first half hour after having awakened in the morning, how tired do you feel? ',("Very tired","Fairly tired","Fairly refreshed","Very refreshed")) 
