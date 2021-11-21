@@ -74,8 +74,8 @@ def prediction(age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3
 		breathst = 5
             
 	# Calculate index_1    
-	total = lsnore + sngasp + breathst
-	index_1 = total/3
+	tot = lsnore + sngasp + breathst
+	index_1 = tot/3
         
 	#Calculate map_score
 	#first x is calculated where [x=-8.16+(1.299*index_1)+ (0.163*BMI)-(0.028*index_1*BMI)+(0.032*Age)+(1.278*Gender)] 
@@ -230,8 +230,8 @@ def find_importances (Gender, Married, ApplicantIncome, LoanAmount, Credit_Histo
 		breathst = 5
             
 	# Calculate index_1   
-	total = lsnore + sngasp + breathst
-	index_1 = = total/3
+	tot = lsnore + sngasp + breathst
+	index_1 = tot/3
         
 	#Calculate map_score
 	#first x is calculated where [x=-8.16+(1.299*index_1)+ (0.163*BMI)-(0.028*index_1*BMI)+(0.032*Age)+(1.278*Gender)] 
