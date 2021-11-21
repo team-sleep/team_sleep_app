@@ -375,18 +375,18 @@ def tab1():
 	slmed = st.sidebar.selectbox('Do you take a sleeping aid once a week or more?',("Yes","No")) 
 
 
-	result =""
+	result = ""
 	
 	if st.sidebar.button("Predict"): 
-	result = prediction(age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3, sq4, sq5, sq6, slmed) 
-	st.sidebar.success('Your result is {}'.format(result))
-	#print(LoanAmount)
+		result = prediction(age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3, sq4, sq5, sq6, slmed) 
+		st.sidebar.success('Your result is {}'.format(result))
+		#print(LoanAmount)
 
 
-	# feat_importances = pd.Series(importances.feature_importances_, index=["Gender", "Married", "ApplicantIncome", "LoanAmount", "Credit_History"]).sort_values(ascending=False)
-	# impPlot(feat_importances, 'Random Forest Classifier')
-	find_importances(age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3, sq4, sq5, sq6, slmed)  
-	st.write('\n')
+		# feat_importances = pd.Series(importances.feature_importances_, index=["Gender", "Married", "ApplicantIncome", "LoanAmount", "Credit_History"]).sort_values(ascending=False)
+		# impPlot(feat_importances, 'Random Forest Classifier')
+		find_importances(age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3, sq4, sq5, sq6, slmed)  
+		st.write('\n')
         
 
  	#  @st.cache()
