@@ -7,6 +7,6 @@ plotly
 matplotlib
 sklearn
 scikit-learn
-neighbors
+sklearn.neighbors
 treeinterpreter
 KNeighborsClassifier
