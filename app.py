@@ -171,7 +171,7 @@ def prediction(age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3
     	
 	
 	
-def find_importances (Gender, Married, ApplicantIncome, LoanAmount, Credit_History):   
+def find_importances (age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3, sq4, sq5, sq6, slmed):   
 	# Pre-processing user input    
 	#Age, gender, BMI
 	if gender == "Male":
