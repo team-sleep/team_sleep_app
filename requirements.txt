@@ -9,4 +9,4 @@ sklearn
 scikit-learn
 neighbors
 treeinterpreter
-KNeighborsClassifier
+
