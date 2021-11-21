@@ -75,6 +75,7 @@ def prediction(age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3
             
 	# Calculate index_1    
 	tot = int(lsnore) + int(sngasp) + int(breathst)
+	print(tot)
 	index_1 = tot/3
         
 	#Calculate map_score
