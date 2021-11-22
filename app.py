@@ -11,7 +11,7 @@ from sklearn.neighbors import KNeighborsClassifier
 import math
 
 
-pickle_in = open('classifier_5.pkl', 'rb') 
+pickle_in = open('classifier_rf.pkl', 'rb') 
 classifier = pickle.load(pickle_in)
 
 def prediction(age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3, sq4, sq5, sq6, slmed):
