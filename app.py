@@ -165,7 +165,7 @@ def prediction(age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3
 	#prediction = classifier.predict([[papdev, map_score, rmeqscore, slmed, bmi]])
 	prediction = classifier.predict(scaled_data)
 
-	if prediction == "srbd_apne":
+	if prediction == "srbd_apnea":
 		pred = 'Sleep Apnea'
 	else:
 		pred = 'No Sleep Apnea'
