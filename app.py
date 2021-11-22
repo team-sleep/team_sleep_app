@@ -345,7 +345,7 @@ def find_importances (age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, s
 	ax.set_title('Contribution of all feature for a particular sample')
 	ax.set_xticks(ind + width / 2)
 	ax.set_xticklabels(col, rotation = 90)
-	ax.legend((p1[0], p2[0]), ('one', 'zero') , bbox_to_anchor=(1.04,1), loc="upper left")
+	ax.legend((p1[0], p2[0]), ('Sleep Apnea', 'No Sleep Apnea') , bbox_to_anchor=(1.04,1), loc="upper left")
 	st.pyplot(fig)
     
 
