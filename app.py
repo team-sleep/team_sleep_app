@@ -12,7 +12,9 @@ import math
 
 
 pickle_in = open('classifier_rf.pkl', 'rb') 
+scaler_in = open('scaler_5.pkl','rb')
 classifier = pickle.load(pickle_in)
+scaler5 = pickle.load(scaler_in)
 
 def prediction(age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3, sq4, sq5, sq6, slmed):
 	# Pre-processing user input    
@@ -159,11 +161,11 @@ def prediction(age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3
 
 
 # Making predictions 
-#scaled_data = scaler.transform( 
-#     [[papdev, map_score, rmeqscore, slmed, bmi]])
-	prediction = classifier.predict([[papdev, map_score, rmeqscore, slmed, bmi]])
+	scaled_data = scaler.transform([[papdev, map_score, rmeqscore, slmed, bmi]])
+	#prediction = classifier.predict([[papdev, map_score, rmeqscore, slmed, bmi]])
+	prediction = classifier.predict(scaled_data)
 
-	if prediction == "SRBD Apnea":
+	if prediction == "srbd_apne":
 		pred = 'Sleep Apnea'
 	else:
 		pred = 'No Sleep Apnea'
