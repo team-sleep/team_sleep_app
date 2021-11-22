@@ -352,12 +352,13 @@ def find_importances (age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, s
 
 
 app = st.HydraApp(title='Team Sleep App', nav_horizontal=True, 
-      use_banner_images=[None,None,{'header':"<h1 style='text-align:center;padding: 0px 0px;color:black;font-size:200%;'>Team 001: Sleep Diagnosis</h1><br>"},None,None], 
+      use_banner_images=[None,None,{'header':"<h1 style='text-align:center;padding: 0px 0px;color:black;font-size:200%;'>Team 001: Sleep Apnea Prediction</h1><br>"},None,None], 
       banner_spacing=[5,30,60,30,5],)
 
-@app.addapp(title="User", is_home=True) #set to false to not use "home icon" for this page
+@app.addapp(title="Questionnaire", is_home=True) #set to false to not use "home icon" for this page
 def tab1():
 	from pages import tab1
+	st.subheader("Fill in the questionnaire to get a prediction of your diagnosis and to see the importance of each feature to your prediction.")
 	#age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3, sq4, sq5, sq6, slmed
 	st.sidebar.title("Sleep Questionnaire")
 	age = st.sidebar.number_input('Age')
