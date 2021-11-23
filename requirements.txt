@@ -9,4 +9,5 @@ sklearn
 scikit-learn
 neighbors
 treeinterpreter
+plotly
 
