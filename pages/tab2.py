@@ -17,9 +17,9 @@ def run():
 
     st.subheader("Feature Importance") 
     feature_importance = classifier.feature_importances_
-    feature_names = ["Gender", "Married", "ApplicantIncome", "LoanAmount", "Credit_History"]
-    bar_data = pd.DataFrame(feature_importance, feature_names)
-    st.bar_chart(bar_data) 
+    feature_names = ["What Treatment Since Enrollment Study Cpap", "MAP Score","rMEQ Total Score","What Treatment Since Enrollment Study Med","Body Mass Index (BMI)"]
+    # bar_data = pd.DataFrame(feature_importance, feature_names)
+    # st.bar_chart(bar_data) 
 
     bar_data = pd.DataFrame({"Feature Importance": feature_importance, 
                          "Feature": feature_names})
