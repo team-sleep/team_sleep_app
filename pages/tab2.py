@@ -12,12 +12,12 @@ def run():
     st.markdown(html_temp, unsafe_allow_html = True)
     st.title("Model Visualization")
 
-    pickle_in = open('classifier.pkl', 'rb') 
+    pickle_in = open('classifier_rf.pkl', 'rb') 
     classifier = pickle.load(pickle_in)
 
     st.subheader("Feature Importance") 
     feature_importance = classifier.feature_importances_
-    feature_names = ["Gender", "Married", "ApplicantIncome", "LoanAmount", "Credit_History"]
+    feature_names = ["What Treatment Since Enrollment Study Cpap", "MAP Score","rMEQ Total Score","What Treatment Since Enrollment Study Med","Body Mass Index (BMI)"]
     # bar_data = pd.DataFrame(feature_importance, feature_names)
     # st.bar_chart(bar_data) 
 
