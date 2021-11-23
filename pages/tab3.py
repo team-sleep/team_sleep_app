@@ -3,7 +3,7 @@ import pickle
 from sklearn.tree import export_graphviz
 
 def run():
-    st.markdown('The random forest algorithm determines an outcome based on the predictions from **100** decision trees. ' +
+    st.markdown('The random forest algorithm determines an outcome based on the predictions from **150** decision trees. ' +
             'Use the slider to visulize a subset or all of the trees in the forest.')
 
     display_num_trees = st.select_slider("Number of Trees to display", options=[1,4,50,150], on_change=None, args=None, kwargs=None)
