@@ -363,8 +363,8 @@ def tab1():
 	st.subheader("Fill in the questionnaire to get a prediction of your diagnosis and to see the importance of each feature to your prediction.")
 	#age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3, sq4, sq5, sq6, slmed
 	st.sidebar.title("Sleep Questionnaire")
-	age = st.sidebar.number_input('Age', value = 40, step = 1)
-	bmi = st.sidebar.number_input('BMI', value = 20, step = 0.5)
+	age = st.sidebar.number_input('Age', min_value=5.0, max_value=100.0, value=40.0, step=1.0, format=None, key=None)
+	bmi = st.sidebar.number_input('BMI', min_value=15.0, max_value=35.0, value=20.0, step=0.5, format=None, key=None)
 	gender = st.sidebar.selectbox('Gender',("Male", "Female"))
     
     
