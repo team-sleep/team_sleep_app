@@ -10,7 +10,6 @@ import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsClassifier
 import math
 
-
 pickle_in = open('classifier_rf.pkl', 'rb') 
 scaler_in = open('scaler_5.pkl','rb')
 classifier = pickle.load(pickle_in)
@@ -351,43 +350,54 @@ def find_importances (age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, s
 	st.pyplot(fig)
     
 
+def run():
+	show_form=True
+	if show_form:
+		st.subheader("Just testing out sidebar vs. inline within a form")
+		st.subheader("Fill in the questionnaire to get a prediction of your diagnosis and to see the importance of each feature to your prediction.")
+		#age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3, sq4, sq5, sq6, slmed
+		st.title("Sleep Questionnaire")
+		#age = st.number_input('Age')
 
-
-app = st.HydraApp(title='Team Sleep App', nav_horizontal=True, 
-      use_banner_images=[None,None,{'header':"<h1 style='text-align:center;padding: 0px 0px;color:black;font-size:200%;'>Team 001: Sleep Apnea Prediction</h1><br>"},None,None], 
-      banner_spacing=[5,30,60,30,5],)
-
-@app.addapp(title="Questionnaire", is_home=True) #set to false to not use "home icon" for this page
-def tab1():
-	from pages import tab1
-	st.subheader("Fill in the questionnaire to get a prediction of your diagnosis and to see the importance of each feature to your prediction.")
-	#age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3, sq4, sq5, sq6, slmed
-	st.sidebar.title("Sleep Questionnaire")
-	age = st.sidebar.number_input('Age', min_value=5.0, max_value=100.0, value=40.0, step=1.0, format=None, key=None)
-	bmi = st.sidebar.number_input('BMI', min_value=15.0, max_value=35.0, value=20.0, step=0.5, format=None, key=None)
-	gender = st.sidebar.selectbox('Gender',("Male", "Female"))
-    
-    
-	papdev = st.sidebar.selectbox('Type of PAP Device',("CPAP","BiPAP/BiLevel","Do not know")) 
-	lsnore = st.sidebar.selectbox('How often have you had or been told you had loud snoring? (MAP Score)',("Never","Rarely","Sometimes","Frequently","Always","Don't know"))
-	sngasp = st.sidebar.selectbox('How often have you had or been told you had snorting/gasping? (MAP Score)',("Never","Rarely","Sometimes","Frequently","Always","Don't know"))
-	breathst = st.sidebar.selectbox('How often have you had or been told you stopped breathing? (MAP Score)',("Never","Rarely","Sometimes","Frequently","Always","Don't know"))
-
-	sq1 = st.sidebar.selectbox('What time of day would you get up if you were entirely free to plan your day? (rMEQ Score)',("11am-12pm","9:45-11am","7:45-9:45am","6:30-7:45am","5-6:30am")) 
-	sq2 = st.sidebar.selectbox('During the first half hour after having awakened in the morning, how tired do you feel? (rMEQ Score)',("Very tired","Fairly tired","Fairly refreshed","Very refreshed")) 
-	sq3 = st.sidebar.selectbox('At what time in the evening do you feel tired? (rMEQ Score)',("1:45-3am","12:30-1:45am","10:15pm-12:30am","9-10:15pm","8-9pm")) 
-	sq4 = st.sidebar.selectbox('At what time of the day do you think that you feel your best? (rMEQ Score)',("10pm-12am","5-10pm","10am-5pm","8-10am","5-8am","12-5am")) 
-	sq5 = st.sidebar.selectbox('One hears about morning and evening types of people.  Which ONE of these types do you consider yourself to be? (rMEQ Score)',("Definitely evening","More evening than morning","More morning than evening","Definitely morning")) 
-	sq6 = st.sidebar.selectbox('Do you routinely travel to other time zones? (rMEQ Score)',("Yes","No")) 
-
-	slmed = st.sidebar.selectbox('In the past 6 months, have you used any medications for sleep disorders?',("Yes","No")) 
-
-
-	result = ""
+		age = st.number_input(label='Age', min_value=10, max_value=100, step=None)
 	
-	if st.sidebar.button("Predict"): 
+		#bmi = st.sidebar.number_input('BMI')
+		col1, col2, spacer3, spacer4, spacer5 = st.columns(5)  #spacer3-5 make col1/2 smaller
+		height_ft = col1.number_input(label='Height:  Feet', min_value=4, max_value=7, step=None)
+		height_in = col2.number_input(label='Inches', min_value=0, max_value=11, step=None)
+		wcol1, wcol2, wspacer3, wspacer4, wspacer5 = st.columns(5)
+		weight = wcol1.number_input(label='Weight: Pounds', min_value=1, max_value=600, step=None)
+		
+		# https://www.cdc.gov/nccdphp/dnpao/growthcharts/training/bmiage/page5_2.html
+		height = (height_ft * 12.0) + height_in
+		bmi = round((weight / height / height) * 703.0, 1)
+
+		
+		gender = st.selectbox('Gender',("Male", "Female"))
+		
+		
+		papdev = st.selectbox('Type of PAP Device',("CPAP","BiPAP/BiLevel","Do not know")) 
+		lsnore = st.selectbox('How often have you had or been told you had loud snoring?',("Never","Rarely","Sometimes","Frequently","Always","Don't know"))
+		sngasp = st.selectbox('How often have you had or been told you had snorting/gasping?',("Never","Rarely","Sometimes","Frequently","Always","Don't know"))
+		breathst = st.selectbox('How often have you had or been told you stopped breathing?',("Never","Rarely","Sometimes","Frequently","Always","Don't know"))
+
+		sq1 = st.selectbox('What time of day would you get up if you were entirely free to plan your day?',("11am-12pm","9:45-11am","7:45-9:45am","6:30-7:45am","5-6:30am")) 
+		sq2 = st.selectbox('During the first half hour after having awakened in the morning, how tired do you feel? ',("Very tired","Fairly tired","Fairly refreshed","Very refreshed")) 
+		sq3 = st.selectbox('At what time in the evening do you feel tired?',("1:45-3am","12:30-1:45am","10:15pm-12:30am","9-10:15pm","8-9pm")) 
+		sq4 = st.selectbox('At what time of the day do you think that you feel your best?',("10pm-12am","5-10pm","10am-5pm","8-10am","5-8am","12-5am")) 
+		sq5 = st.selectbox('At what time in the evening do you feel tired?',("Definitely evening","More evening than morning","More morning than evening","Definitely morning")) 
+		sq6 = st.selectbox('Do you routinely travel to other time zones?',("Yes","No")) 
+
+		slmed = st.selectbox('Do you take a sleeping aid once a week or more?',("Yes","No")) 
+
+
+		result = ""
+	
+	if st.button("Predict"):
+		
+
 		result = prediction(age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3, sq4, sq5, sq6, slmed) 
-		st.sidebar.success('Your result is {}'.format(result))
+		st.success('Your result is {}'.format(result))
 		#print(LoanAmount)
 
 
@@ -395,25 +405,3 @@ def tab1():
 		# impPlot(feat_importances, 'Random Forest Classifier')
 		find_importances(age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3, sq4, sq5, sq6, slmed)  
 		st.write('\n')
-        
-
- 	#  @st.cache()
-	tab1.run()
-
-@app.addapp(title="Model Performance")
-def tab2():
-	from pages import tab2
-	tab2.run()
-
-@app.addapp(title="Decision Trees")
-def tab_temporary_put_on_tab2_later():
-	from pages import tab3
-	tab3.run()
-
-@app.addapp(title="Temp - alternate form")
-def tab_temporary_put_on_tab2_later():
-        from pages import tab4
-        tab4.run()
-
-#Hydralit: navbar, state management and app isolation, all with this tiny amount of work.
-app.run()
