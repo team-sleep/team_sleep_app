@@ -34,8 +34,8 @@ def run():
     z = [[73, 44],
      [20, 116]]
 
-    x = ['Non-Apnea', 'Sleep Related Breating Disorder Apnea']
-    y = ['Non-Apnea', 'Sleep Related Breating Disorder Apnea']
+    x = ['Non-Apnea', 'Sleep Related Breathing Disorder Apnea']
+    y = ['Non-Apnea', 'Sleep Related Breathing Disorder Apnea']
 
     # change each element of z to type string for annotations
     z_text = [[str(y) for y in x] for x in z]
