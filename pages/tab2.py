@@ -45,7 +45,7 @@ def run():
 
 
     # add custom xaxis title
-    fig.add_annotation(dict(font=dict(color="black",size=14),
+    fig.add_annotation(dict(font=dict(color="white",size=14),
                             x=0.5,
                             y=-0.15,
                             showarrow=False,
@@ -54,7 +54,7 @@ def run():
                             yref="paper"))
 
     # add custom yaxis title
-    fig.add_annotation(dict(font=dict(color="black",size=14),
+    fig.add_annotation(dict(font=dict(color="white",size=14),
                             x=-0.35,
                             y=0.5,
                             showarrow=False,
