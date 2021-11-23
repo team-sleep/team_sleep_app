@@ -367,11 +367,11 @@ def tab1():
 	#bmi = st.sidebar.number_input('BMI', min_value=15.0, max_value=35.0, value=20.0, step=0.5, format=None, key=None)
 	
 		
-	col1, col2, spacer3, spacer4, spacer5 = st.columns(5)  #spacer3-5 make col1/2 smaller
-	height_ft = col1.number_input(label='Height:  Feet', min_value=4, max_value=7, step=None)
-	height_in = col2.number_input(label='Inches', min_value=0, max_value=11, step=None)
-	wcol1, wcol2, wspacer3, wspacer4, wspacer5 = st.columns(5)
-	weight = wcol1.number_input(label='Weight: Pounds', min_value=1, max_value=600, step=None)
+	#col1, col2, spacer3, spacer4, spacer5 = st.columns(5)  #spacer3-5 make col1/2 smaller
+	height_ft = st.sidebar.number_input(label='Height:  Feet', min_value=4, max_value=7, step=None)
+	height_in = st.sidebar.number_input(label='Inches', min_value=0, max_value=11, step=None)
+	#wcol1, wcol2, wspacer3, wspacer4, wspacer5 = st.columns(5)
+	weight = st.sidebar.number_input(label='Weight: Pounds', min_value=1, max_value=600, step=None)
 		
 	# https://www.cdc.gov/nccdphp/dnpao/growthcharts/training/bmiage/page5_2.html
 	height = (height_ft * 12.0) + height_in
