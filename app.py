@@ -363,24 +363,24 @@ def tab1():
 	st.subheader("Fill in the questionnaire to get a prediction of your diagnosis and to see the importance of each feature to your prediction.")
 	#age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3, sq4, sq5, sq6, slmed
 	st.sidebar.title("Sleep Questionnaire")
-	age = st.sidebar.number_input('Age')
-	bmi = st.sidebar.number_input('BMI')
+	age = st.sidebar.number_input('Age', value = 40, step = 1)
+	bmi = st.sidebar.number_input('BMI', value = 20, step = 0.5)
 	gender = st.sidebar.selectbox('Gender',("Male", "Female"))
     
     
 	papdev = st.sidebar.selectbox('Type of PAP Device',("CPAP","BiPAP/BiLevel","Do not know")) 
-	lsnore = st.sidebar.selectbox('How often have you had or been told you had loud snoring?',("Never","Rarely","Sometimes","Frequently","Always","Don't know"))
-	sngasp = st.sidebar.selectbox('How often have you had or been told you had snorting/gasping?',("Never","Rarely","Sometimes","Frequently","Always","Don't know"))
-	breathst = st.sidebar.selectbox('How often have you had or been told you stopped breathing?',("Never","Rarely","Sometimes","Frequently","Always","Don't know"))
+	lsnore = st.sidebar.selectbox('How often have you had or been told you had loud snoring? (MAP Score)',("Never","Rarely","Sometimes","Frequently","Always","Don't know"))
+	sngasp = st.sidebar.selectbox('How often have you had or been told you had snorting/gasping? (MAP Score)',("Never","Rarely","Sometimes","Frequently","Always","Don't know"))
+	breathst = st.sidebar.selectbox('How often have you had or been told you stopped breathing? (MAP Score)',("Never","Rarely","Sometimes","Frequently","Always","Don't know"))
 
-	sq1 = st.sidebar.selectbox('What time of day would you get up if you were entirely free to plan your day?',("11am-12pm","9:45-11am","7:45-9:45am","6:30-7:45am","5-6:30am")) 
-	sq2 = st.sidebar.selectbox('During the first half hour after having awakened in the morning, how tired do you feel? ',("Very tired","Fairly tired","Fairly refreshed","Very refreshed")) 
-	sq3 = st.sidebar.selectbox('At what time in the evening do you feel tired?',("1:45-3am","12:30-1:45am","10:15pm-12:30am","9-10:15pm","8-9pm")) 
-	sq4 = st.sidebar.selectbox('At what time of the day do you think that you feel your best?',("10pm-12am","5-10pm","10am-5pm","8-10am","5-8am","12-5am")) 
-	sq5 = st.sidebar.selectbox('At what time in the evening do you feel tired?',("Definitely evening","More evening than morning","More morning than evening","Definitely morning")) 
-	sq6 = st.sidebar.selectbox('Do you routinely travel to other time zones?',("Yes","No")) 
+	sq1 = st.sidebar.selectbox('What time of day would you get up if you were entirely free to plan your day? (rMEQ Score)',("11am-12pm","9:45-11am","7:45-9:45am","6:30-7:45am","5-6:30am")) 
+	sq2 = st.sidebar.selectbox('During the first half hour after having awakened in the morning, how tired do you feel? (rMEQ Score)',("Very tired","Fairly tired","Fairly refreshed","Very refreshed")) 
+	sq3 = st.sidebar.selectbox('At what time in the evening do you feel tired? (rMEQ Score)',("1:45-3am","12:30-1:45am","10:15pm-12:30am","9-10:15pm","8-9pm")) 
+	sq4 = st.sidebar.selectbox('At what time of the day do you think that you feel your best? (rMEQ Score)',("10pm-12am","5-10pm","10am-5pm","8-10am","5-8am","12-5am")) 
+	sq5 = st.sidebar.selectbox('One hears about morning and evening types of people.  Which ONE of these types do you consider yourself to be? (rMEQ Score)',("Definitely evening","More evening than morning","More morning than evening","Definitely morning")) 
+	sq6 = st.sidebar.selectbox('Do you routinely travel to other time zones? (rMEQ Score)',("Yes","No")) 
 
-	slmed = st.sidebar.selectbox('Do you take a sleeping aid once a week or more?',("Yes","No")) 
+	slmed = st.sidebar.selectbox('In the past 6 months, have you used any medications for sleep disorders?',("Yes","No")) 
 
 
 	result = ""
