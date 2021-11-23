@@ -26,12 +26,10 @@ def prediction(age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3
 
 
 # Feature 0
-	if papdev == "CPAP":
-		papdev = 0
-	elif papdev == "BiPAP/BiLevel":
+	if papdev == "Yes":
 		papdev = 1
 	else:
-		papdev = -55
+		papdev = 0
 
 # Feature 1
 	#Q1
@@ -183,12 +181,10 @@ def find_importances (age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, s
 
 
 # Feature 0
-	if papdev == "CPAP":
-		papdev = 0
-	elif papdev == "BiPAP/BiLevel":
+	if papdev == "Yes":
 		papdev = 1
 	else:
-		papdev = -55
+		papdev = 0
 
 # Feature 1
 	#Q1
@@ -379,7 +375,7 @@ def tab1():
 
 	gender = st.sidebar.selectbox('Gender',("Male", "Female"))
      
-	papdev = st.sidebar.selectbox('Type of PAP Device',("CPAP","BiPAP/BiLevel","Do not know")) 
+	papdev = st.sidebar.selectbox('In the past 6 months, have you use a CPAP machine?',("Yes","No")) 
 	lsnore = st.sidebar.selectbox('How often have you had or been told you had loud snoring? (MAP Score)',("Never","Rarely","Sometimes","Frequently","Always","Don't know"))
 	sngasp = st.sidebar.selectbox('How often have you had or been told you had snorting/gasping? (MAP Score)',("Never","Rarely","Sometimes","Frequently","Always","Don't know"))
 	breathst = st.sidebar.selectbox('How often have you had or been told you stopped breathing? (MAP Score)',("Never","Rarely","Sometimes","Frequently","Always","Don't know"))
