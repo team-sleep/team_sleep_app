@@ -6,7 +6,7 @@ def run():
     st.markdown('The random forest algorithm determines an outcome based on the predictions from **100** decision trees. ' +
             'Use the slider to visulize a subset or all of the trees in the forest.')
 
-    display_num_trees = st.select_slider("Number of Trees to display", options=[1,4,50,100], on_change=None, args=None, kwargs=None)
+    display_num_trees = st.select_slider("Number of Trees to display", options=[1,4,50,150], on_change=None, args=None, kwargs=None)
     
     if(display_num_trees == 1):
         num_cols=1
