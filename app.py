@@ -400,12 +400,12 @@ def tab1():
  	#  @st.cache()
 	tab1.run()
 
-@app.addapp(title="Model")
+@app.addapp(title="Model Performance")
 def tab2():
 	from pages import tab2
 	tab2.run()
 
-@app.addapp(title="Temporary")
+@app.addapp(title="Decision Trees")
 def tab_temporary_put_on_tab2_later():
 	from pages import tab3
 	tab3.run()
