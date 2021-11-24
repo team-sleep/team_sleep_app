@@ -9,11 +9,19 @@ def gen_with_seq_number():
 	print("total random trees =",len(classifier.estimators_))
 	print("appending number on each rt image from 0 to", str(len(classifier.estimators_) - 1))
 
+	scaler_in = open('scaler_5.pkl','rb')
+	scaler5 = pickle.load(scaler_in)
+	scaled_data = scaler5.transform([[1.0, 1.0, 1.0, 1.0, 1.0]])
+
 	for i in range(len(classifier.estimators_)):
 		outfile = "images/rtree_image_" + str(i)
 		estimator = classifier.estimators_[i]
 		
 		print("writing image", outfile)
+
+        
+		result = estimator.predict(scaled_data)
+		print("est=",i, result)
 		
 		export_graphviz(estimator, out_file=outfile + ".dot", 
 						feature_names = ["What Treatment Since Enrollment Study Cpap", "MAP Score","rMEQ Total Score","What Treatment Since Enrollment Study Med","Body Mass Index (BMI)"],
@@ -23,7 +31,7 @@ def gen_with_seq_number():
 
 		# Convert to png using system command (requires Graphviz)
 		from subprocess import call
-		call(['dot', '-Tpng', outfile + '.dot', '-o', outfile + '.png', '-Gdpi=200'])
+		call(['dot', '-Tpng', outfile + '.dot', '-o', outfile + '.png', '-Gdpi=100']) #200 is a good number
 	
 	print("writing images is done.")
 	pass

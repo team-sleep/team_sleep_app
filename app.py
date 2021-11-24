@@ -167,6 +167,11 @@ def prediction(age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3
 		pred = 'Sleep Apnea'
 	else:
 		pred = 'No Sleep Apnea'
+
+	#stick the features and prediction/result into session state (eg for RT visualization):
+	st.session_state.scaled_data = scaled_data
+	st.session_state.prediction = pred
+
 	return pred
     	
 	
@@ -359,7 +364,7 @@ def tab1():
 	st.subheader("Fill in the questionnaire to get a prediction of your diagnosis and to see the importance of each feature to your prediction.")
 	#age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3, sq4, sq5, sq6, slmed
 	st.sidebar.title("Sleep Questionnaire")
-	age = st.sidebar.number_input('Age', min_value=5.0, max_value=100.0, value=40.0, step=1.0, format=None, key=None)
+	age = st.sidebar.number_input('Age', min_value=5, max_value=100, value=40, step=1, format=None, key=None)
 	#bmi = st.sidebar.number_input('BMI', min_value=15.0, max_value=35.0, value=20.0, step=0.5, format=None, key=None)
 	
 		
@@ -396,7 +401,6 @@ def tab1():
 		result = prediction(age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3, sq4, sq5, sq6, slmed) 
 		st.sidebar.success('Your result is {}'.format(result))
 		#print(LoanAmount)
-
 
 		# feat_importances = pd.Series(importances.feature_importances_, index=["Gender", "Married", "ApplicantIncome", "LoanAmount", "Credit_History"]).sort_values(ascending=False)
 		# impPlot(feat_importances, 'Random Forest Classifier')
