@@ -80,7 +80,7 @@ def run():
 
     display_opt = opt_col1.radio(
         "Show decision trees in the random forest",
-        ('Supporting your overall prediction of ' + st.session_state.prediction, 'Not supporting this prediction'), index=0)
+        ('Supporting your overall prediction of ' + st.session_state.prediction, 'Not supporting your prediction'), index=0)
 
     if display_opt != 'Not supporting this prediction':
         
@@ -122,6 +122,8 @@ def run():
     num_rows = int(math.ceil(display_num_trees / (num_cols)))
     display_num_trees = int(display_num_trees)
 
+    st.subheader(str(display_num_trees) + " tree(s) displayed of a total of " + str(len(display_trees)) + " " + display_opt.lower())
+
     idx=-1
     for r in range(0,num_rows): # number of rows in table
         cols = st.columns(num_cols)
@@ -132,9 +134,8 @@ def run():
                 img = 'images/rtree_image_%i.png' %tree_id
                 cols[c].image(img, use_column_width=True)
     
-    st.subheader(str(display_num_trees) + " tree(s) displayed of a total of " + str(len(display_trees)) + " " + display_opt)
-    print("display_num_trees", display_num_trees, "num_rows", num_rows, "num images displayed", idx + 1)
-    print(display_trees)
+    # print("display_num_trees", display_num_trees, "num_rows", num_rows, "num images displayed", idx + 1)
+    # print(display_trees)
 
 
     # display_num_trees = st.select_slider("Number of Trees to display", options=[1,4,50,150], on_change=None, args=None, kwargs=None)
