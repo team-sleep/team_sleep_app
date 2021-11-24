@@ -78,25 +78,24 @@ def run():
 
     opt_col1, opt_col2 = st.columns(2)
 
+    opposite_text='Not supporting your prediction'
     display_opt = opt_col1.radio(
         "Show decision trees in the random forest",
-        ('Supporting your overall prediction of ' + st.session_state.prediction, 'Not supporting your prediction'), index=0)
+        ('Supporting your overall prediction of ' + st.session_state.prediction, opposite_text), index=0)
 
-    if display_opt != 'Not supporting this prediction':
-        
-        display_supporting=True
-
-        if(apnea_prediction):
-            display_trees = apnea_trees
-        else:
-            display_trees = no_apnea_trees
-    else:
+    if display_opt == opposite_text:
         display_supporting=False
-
         if(apnea_prediction):
             display_trees = no_apnea_trees
         else:
             display_trees = apnea_trees
+    else:
+        display_supporting=True
+        if(apnea_prediction):
+            display_trees = apnea_trees
+        else:
+            display_trees = no_apnea_trees
+
     
     display_num_opt = opt_col2.select_slider("Number of Trees to display", options=["one", "few", "half", "all"], on_change=None, args=None, kwargs=None)
     
