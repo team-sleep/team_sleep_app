@@ -64,7 +64,7 @@ def run():
 
     fig = px.pie(rt_preduction_summary, values=rt_preduction_summary.Counts, 
                     names=rt_preduction_summary.Prediction, color=rt_preduction_summary.Prediction,
-                    color_discrete_map={'Sleep Apnea':'red', 'No Sleep Apnea':'black','xxx':'darkblue'})
+                    color_discrete_map={'Sleep Apnea':'#003057', 'No Sleep Apnea':'#A28D5B'}) #gatech colors :-)
     fig.update_layout(
     title="<b>Breakdown of how each of the 150 decision trees predicted your outcome</b>")
     st.plotly_chart(fig)

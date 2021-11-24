@@ -355,8 +355,8 @@ def find_importances (age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, s
 
 
 app = st.HydraApp(title='Team Sleep App', nav_horizontal=True, 
-      use_banner_images=[None,None,{'header':"<h1 style='text-align:center;padding: 0px 0px;color:black;font-size:200%;'>Team 001: Sleep Apnea Prediction</h1><br>"},None,None], 
-      banner_spacing=[5,30,60,30,5],)
+      use_banner_images=[None,None,{'header':"<h1 style='text-align:center;padding: 10px 0px;color:black;font-size:200%;'>Team 001: Sleep Apnea Prediction</h1><br>"},None,None], 
+      banner_spacing=[5,30,60,30,5],navbar_sticky=True, navbar_theme={'menu_background': '#003057'})
 
 @app.addapp(title="Questionnaire", is_home=True) #set to false to not use "home icon" for this page
 def tab1():
