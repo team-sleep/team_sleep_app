@@ -121,7 +121,7 @@ def run():
     num_rows = int(math.ceil(display_num_trees / (num_cols)))
     display_num_trees = int(display_num_trees)
 
-    st.subheader(str(display_num_trees) + " tree(s) displayed of a total of " + str(len(display_trees)) + " " + display_opt.lower())
+    st.subheader(str(display_num_trees) + " tree(s) displayed out of a total of " + str(len(display_trees)) + " " + display_opt.lower())
 
     idx=-1
     for r in range(0,num_rows): # number of rows in table
