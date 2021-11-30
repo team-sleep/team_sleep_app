@@ -350,6 +350,9 @@ def find_importances (age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, s
 	ax.set_xticklabels(col, rotation = 90)
 	ax.legend((p1[0], p2[0]), ('Sleep Apnea', 'No Sleep Apnea') , bbox_to_anchor=(1.04,1), loc="upper left")
 	st.pyplot(fig)
+	st.text('test')
+	st.markdown('testm')
+	st.write('testw')
     
 
 
