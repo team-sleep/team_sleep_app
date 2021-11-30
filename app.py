@@ -362,6 +362,7 @@ app = st.HydraApp(title='Team Sleep App', nav_horizontal=True,
 def tab1():
 	from pages import tab1
 	st.subheader("Fill in the questionnaire to get a prediction of your diagnosis and to see the importance of each feature to your prediction.")
+	st.write("To see feature importance of the overall model, please visit the model performance tab.")
 	#age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3, sq4, sq5, sq6, slmed
 	st.sidebar.title("Sleep Questionnaire")
 	age = st.sidebar.number_input('Age', min_value=5, max_value=100, value=40, step=1, format=None, key=None)
