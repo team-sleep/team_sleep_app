@@ -399,6 +399,7 @@ def tab1():
 	result = ""
 	
 	if st.sidebar.button("Predict"): 
+		st.write("To see feature importance of the overall model, please visit the model performance tab.")
 		result = prediction(age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3, sq4, sq5, sq6, slmed) 
 		st.sidebar.success('Your result is {}'.format(result))
 		#print(LoanAmount)
