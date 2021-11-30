@@ -350,10 +350,8 @@ def find_importances (age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, s
 	ax.set_xticklabels(col, rotation = 90)
 	ax.legend((p1[0], p2[0]), ('Sleep Apnea', 'No Sleep Apnea') , bbox_to_anchor=(1.04,1), loc="upper left")
 	st.pyplot(fig)
-	st.text('test')
-	st.markdown('testm')
-	st.write('testw')
-    
+	st.write('Feature Abbreviations: MAP Score = Multivariable Apnea Prediction Score, rMEQ Total Score = reduced Morningness Eveningness Questionnaire Total Score')
+	st.write('The feature importance visual is provided to help you to interpret the results of your Sleep Apnea prediction. The answers to the questions you provided are grouped into five key feature categories. Each of the five features contributes to the prediction. Use this visual to see how your sleep patters led to a predicted diagnosis of Sleep Apnea or No Sleep Apnea.')
 
 
 
@@ -402,7 +400,6 @@ def tab1():
 	result = ""
 	
 	if st.sidebar.button("Predict"): 
-		st.write("To see feature importance of the overall model, please visit the model performance tab.")
 		result = prediction(age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, sq2, sq3, sq4, sq5, sq6, slmed) 
 		st.sidebar.success('Your result is {}'.format(result))
 		#print(LoanAmount)
