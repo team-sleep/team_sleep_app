@@ -327,7 +327,7 @@ def find_importances (age, gender, bmi, papdev, lsnore, sngasp, breathst, sq1, s
 	import matplotlib.pyplot as plt
 	import numpy as np
 
-	col = ['PAP Device', 'Multivariable Apnea Prediction Score', 'reduced Morningness Eveningness Questionnaire', 'Sleep Aid Medication', 'BMI',"result"]
+	col = ['PAP Device', 'MAP Score', 'rMEQ Total Score', 'Sleep Aid Medication', 'Body Mass Index (BMI)',"Result"]
 
 	one = []
 	zero = []
